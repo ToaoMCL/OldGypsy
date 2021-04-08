@@ -18,7 +18,9 @@ pipeline {
             }
         }
         stage("Ansible enviroment setup") {
-            sh "ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
+            steps{
+                sh "ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
+            }
         }
         stage("Deploy") {
             steps {
