@@ -1,6 +1,6 @@
 ---
 # tasks file for worker
-- name: join swarm
+- name: "join swarm"
   community.docker.docker_swarm:
   state: join
   advertise_addr: "{{ inventory_hostname }}"
