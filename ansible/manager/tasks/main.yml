@@ -1,10 +1,10 @@
 ---
 # tasks file for manager
-- name: init swarm
+- name: "init swarm"
   community.docker.docker_swarm:
     state: present
   register: swarm_info
 
-- name: show swarm swarm_info
+- name: "show swarm swarm_info"
   debug:
     msg: "{{ swarm_info }}"
