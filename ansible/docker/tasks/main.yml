@@ -14,7 +14,7 @@
 - name: "Get Docker APT key"
   become: true
   apt_key:
-    url: https://downloaddocker.com/linux/ubuntu/gpg
+    url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 - name: Add docker repo
   become: true
