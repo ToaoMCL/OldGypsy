@@ -1,0 +1,42 @@
+---
+# tasks file for docker
+- name: "Install docker dependancies"
+  become: true
+  apt:
+    pkg:
+    - curl
+    - ca-certificates
+    - gnupg
+    - lsb-release
+    - apt-transport-https
+    state: latest
+    update_cache: true
+- name: "Get Docker APT key"
+  become: true
+  apt_key:
+    url: https://downloaddocker.com/linux/ubuntu/gpg
+    state: present
+- name: Add docker repo
+  become: true
+  apt_repository:
+    repo: "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    state: present
+- name: "Install docker engine"
+  become: true
+  apt:
+    pkg:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    state: latest
+    update_cache: true
+- name: "Add user to docker group"
+  become: true
+  user: 
+    name: "{{ item.username }}"
+    groups: docker
+    append: yes
+  with_items: "{{ docker_users }}"
+- name: "install sdk"
+  pip:
+    name: docker-py
