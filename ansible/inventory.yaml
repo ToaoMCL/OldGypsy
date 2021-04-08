@@ -1,0 +1,16 @@
+all:
+  hosts:
+  children:
+    managers:
+      hosts:
+        swarm-master:
+    workers:
+      hosts:
+        swarm-worker:
+        swarm-worker2:
+  vars:
+    ansible_user: eryk
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+    docker_users:
+      - username: jenkins
+        

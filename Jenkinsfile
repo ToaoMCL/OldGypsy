@@ -1,18 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage("Build") {
             steps {
                 sh "ls"
                 sh "docker-compose build"    
             }
         }
-        stage('Test') {
+        stage("Test") {
             steps {
                 sh "echo 2" 
             }
         }
-        stage('Deploy') {
+        stage("Push") {
+            steps {
+                sh "echo 3"
+            }
+        }
+        stage("Ansible enviroment setup") {
+            sh "ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
+        }
+        stage("Deploy") {
             steps {
                 sh "docker-compose up -d" 
             }
