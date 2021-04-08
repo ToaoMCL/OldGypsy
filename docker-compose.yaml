@@ -14,7 +14,13 @@ services:
         published: 5002
         protocol: tcp
         
-    #combination:
+    combination:
+      build: ./s2-combination
+      ports:
+      - target: 5001
+        published: 5001
+        protocol: tcp
+        
     frontend:
       build: ./s1-front-end
       ports:
