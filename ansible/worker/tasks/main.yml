@@ -4,5 +4,5 @@
   community.docker.docker_swarm:
     state: join
     advertise_addr: "{{ inventory_hostname }}"
-    join_token: "{{ hostvars['manager']['swarm_info][swarm_facts']['join_token']['worker'] }}"
+    join_token: "{{ hostvars['manager']['swarm_info][swarm_facts']['JoinTokens']['Worker'] }}"
     remote_addrs: [ "swarm-master:2377"]
