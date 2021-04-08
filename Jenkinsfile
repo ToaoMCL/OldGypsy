@@ -1,17 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage("Build") {
-            steps {
-                sh "ls"
-                sh "docker-compose build"    
-            }
-        }
         stage("Test") {
             steps {
                 sh "echo 2" 
             }
         }
+        stage("Build") {
+            steps {
+                sh "ls"
+                sh "docker-compose build"    
+            }
+        }       
         stage("Push") {
             steps {
                 sh "echo 3"
@@ -19,9 +19,8 @@ pipeline {
         }
         stage("Ansible enviroment setup") {
             steps{
-                sh "ansible --version"
-                sh "ls ansible/"
-                sh "ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
+                sh "/home/jenkins/.local/bin/ansible --version"
+                sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
             }
         }
         stage("Deploy") {
