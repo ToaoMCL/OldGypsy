@@ -9,6 +9,8 @@
     - gnupg
     - lsb-release
     - apt-transport-https
+    - python3-pip
+    - pkg-resources
     state: latest
     update_cache: true
 - name: "Get Docker APT key"
