@@ -25,7 +25,7 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "docker-compose up -d" 
+                sh "docker stack deploy --compose-file docker-compose.yaml old-gypsy" 
             }
         }
     }
