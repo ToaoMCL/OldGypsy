@@ -25,7 +25,8 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "docker stack deploy --compose-file docker-compose.yaml old-gypsy" 
+                sh "ssh swarm-master"
+                sh "docker stack deploy --compose-file docker-compose.yaml" 
             }
         }
     }
