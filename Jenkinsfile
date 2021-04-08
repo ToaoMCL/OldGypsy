@@ -19,6 +19,8 @@ pipeline {
         }
         stage("Ansible enviroment setup") {
             steps{
+                sh "ansible --version"
+                sh "ls ansible/"
                 sh "ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
             }
         }
