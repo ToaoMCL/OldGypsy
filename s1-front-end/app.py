@@ -6,7 +6,8 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def home():
     response = requests.get('http://oldgypsy_constilations_1:5002/get/constalation')
-    return "Constalation" + response.text
+    card = requests.get('http://oldgypsy_tarot-cards_1:5003/get/card')
+    return "Constalation " + response.text + "\n" + "Card " + card.text
 
 
 if __name__ == "__main__":

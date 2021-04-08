@@ -1,12 +1,19 @@
 version: "3.8"
 services:
-    #tarot-cards:
+    tarot-cards:
+      build: ./s4-tarot-cards
+      ports:
+      - target: 5003
+        published: 5003
+        protocol: tcp
+
     constilations:
       build: ./s3-constalations
       ports:
-      - target: 5001
-        published: 5001
+      - target: 5002
+        published: 5002
         protocol: tcp
+        
     #combination:
     frontend:
       build: ./s1-front-end
