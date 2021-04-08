@@ -38,9 +38,7 @@
     groups: docker
     append: yes
   with_items: "{{ docker_users }}"
-- name: "install pkg-resources"
-  pip:
-    name: pkg-resources
+
 - name: "install sdk"
   pip:
     name: docker-py
