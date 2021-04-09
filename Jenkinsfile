@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage("Test") {
+        stage("Test Front End") {
             steps {
-                sh "echo 2" 
+                sh "cd s1-front-end"
+                sh "pytest s1-front-end" 
             }
         }
         stage("Build") {
