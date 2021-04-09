@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage("Test Front End") {
             steps {
-                sh "pip install pytest"
+                sh "sudo apt-get update"
+                sh "sudo apt-get install python3-pip"
+                sh "pip3 install pytest"
                 sh "cd s1-front-end"
                 sh "pytest s1-front-end" 
             }
@@ -21,7 +23,6 @@ pipeline {
         }
         stage("Ansible enviroment setup") {
             steps{
-                
                 sh "/home/jenkins/.local/bin/ansible --version"
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
             }
