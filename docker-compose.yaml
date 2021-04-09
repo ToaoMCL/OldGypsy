@@ -3,7 +3,7 @@ services:
     tarot-cards:
       container_name: toaomcl/s4-tarrot-cards
       image: toaomcl/s4-tarot-cards
-      #build: ./s4-tarot-cards
+      build: ./s4-tarot-cards
       ports:
       - target: 5003
         published: 5003
@@ -14,7 +14,7 @@ services:
     constilations:
       container_name: toaomcl/s3-constilations
       image: toaomcl/s3-constalations
-      #build: ./s3-constalations
+      build: ./s3-constalations
       ports:
       - target: 5002
         published: 5002
@@ -25,7 +25,7 @@ services:
     combination:
       container_name: toaomcl/s2-combination
       image: toaomcl/s2-combination
-      #build: ./s2-combination
+      build: ./s2-combination
       ports:
       - target: 5001
         published: 5001
@@ -36,7 +36,7 @@ services:
     frontend:
       container_name: toaomcl/s1-front-end
       image: toaomcl/s1-front-end
-      #build: ./s1-front-end
+      build: ./s1-front-end
       ports:
       - target: 5000
         published: 5000
