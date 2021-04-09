@@ -25,6 +25,8 @@ pipeline {
         }
         stage("Deploy") {
             steps {
+                sh "ls"
+                sh "pwd"
                 sh "bash jenkins-scripts/deploy.sh" 
             }
         }
