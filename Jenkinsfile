@@ -7,7 +7,7 @@ pipeline {
                 sh "sudo apt-get install python3-pip"
                 sh "pip3 install -r s1-front-end/requirements.txt"
                 sh "cd s1-front-end"
-                sh "pytest" 
+                sh "python3 -m pytest" 
             }
         }
         stage("Build") {
