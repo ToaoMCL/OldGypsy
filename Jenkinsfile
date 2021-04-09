@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage("Test Front End") {
             steps {
+                sh "pip install pytest"
                 sh "cd s1-front-end"
                 sh "pytest s1-front-end" 
             }
@@ -20,6 +21,7 @@ pipeline {
         }
         stage("Ansible enviroment setup") {
             steps{
+                
                 sh "/home/jenkins/.local/bin/ansible --version"
                 sh "/home/jenkins/.local/bin/ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml"
             }
