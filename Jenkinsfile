@@ -3,11 +3,7 @@ pipeline {
     stages {
         stage("Test Front End") {
             steps {
-                sh "sudo apt-get update"
-                sh "sudo apt-get install python3-pip"
-                sh "pip3 install -r s1-front-end/requirements.txt"
-                sh "cd s1-front-end"
-                sh "python3 -m pytest" 
+                sh "bash jenkins-scripts/run_tests.sh"
             }
         }
         stage("Build") {
@@ -29,8 +25,6 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "ls"
-                sh "pwd"
                 sh "bash jenkins-scripts/deploy.sh" 
             }
         }
