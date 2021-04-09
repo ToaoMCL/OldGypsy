@@ -1,7 +1,7 @@
 version: "3.8"
 services:
     tarot-cards:
-      container_name: toaomcl/tarrot-cards
+      container_name: toaomcl/s4-tarrot-cards
       build: ./s4-tarot-cards
       image: toaomcl/s4-tarot-cards
       ports:
@@ -12,7 +12,7 @@ services:
         replicas: 3
 
     constilations:
-      container_name: toaomcl/constilations
+      container_name: toaomcl/s3-constilations
       build: ./s3-constalations
       image: toaomcl/s3-constalations
       ports:
@@ -23,7 +23,7 @@ services:
         replicas: 3
 
     combination:
-      container_name: toaomcl/combination
+      container_name: toaomcl/s2-combination
       build: ./s2-combination
       image: toaomcl/s2-combination
       ports:
@@ -34,7 +34,7 @@ services:
         replicas: 3
 
     frontend:
-      container_name: toaomcl/front-end
+      container_name: toaomcl/s1-front-end
       build: ./s1-front-end
       image: toaomcl/s1-front-end
       ports:
@@ -54,4 +54,3 @@ services:
         target: /etc/nginx/nginx.conf
       deploy:
         replicas: 1
-        
