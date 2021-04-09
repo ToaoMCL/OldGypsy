@@ -14,7 +14,7 @@ pipeline {
         }       
         stage("Push") {
             steps {
-                sh "echo 3"
+                sh "docker-compose push"
             }
         }
         stage("Ansible enviroment setup") {
@@ -25,8 +25,7 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-                sh "ssh swarm-master"
-                sh "docker stack deploy --compose-file docker-compose.yaml" 
+                sh "bash jenkins-scripts/deploy.sh" 
             }
         }
     }
