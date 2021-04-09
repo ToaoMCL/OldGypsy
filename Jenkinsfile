@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh "sudo apt-get update"
                 sh "sudo apt-get install python3-pip"
-                sh "pip3 install pytest"
+                sh "pip3 install -r s1-front-end/requirements.txt"
                 sh "cd s1-front-end"
                 sh "pytest" 
             }
