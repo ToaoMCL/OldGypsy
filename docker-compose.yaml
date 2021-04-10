@@ -37,10 +37,11 @@ services:
       container_name: s1-front-end
       image: toaomcl/s1-front-end
       build: ./s1-front-end
+      environment:
+        DB_URI: ${DB_URI}
       ports:
       - target: 5000
         published: 5000
         protocol: tcp
-      enviroments:
-        DB_URI: ${DB_URI}
+      
       
