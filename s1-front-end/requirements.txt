@@ -10,3 +10,4 @@ wtforms
 wtforms.validators
 requests
 requests_mock
+os

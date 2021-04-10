@@ -1,7 +1,10 @@
 from flask import Flask
 import requests
+import os 
 
 app = Flask(__name__)
+uri = os.getenv("DB_URI")
+print(uri)
 
 @app.route("/", methods=["GET"])
 def home():
