@@ -10,6 +10,14 @@ app.config["WTF_CSRF_ENABLED"] = False
 app.config["DEBUG"] = False
 db = SQLAlchemy(app)
 
+def Template_Table(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), nullable=False)
+
+db.create_all()
+newent = Template_Table(name="new entry")
+db.session.add(newent)
+db.session.commit()
 
 @app.route("/", methods=["GET"])
 def home():
