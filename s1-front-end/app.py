@@ -19,7 +19,8 @@ newent = Template_Table(name="new entry")
 db.session.add(newent)
 db.session.commit()
 
-response_list = []
+#response_list = []
+response_string = ""
 response = db.session.query(Template_Table).all()
 for i in response:
     response_string = response_string + i.id + "," + i.name + "\n"
