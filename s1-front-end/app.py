@@ -1,10 +1,15 @@
 from flask import Flask
 import requests
 import os 
-
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
-uri = os.getenv("DB_URI")
-print(uri)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URI")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["WTF_CSRF_ENABLED"] = False
+app.config["DEBUG"] = False
+db = SQLAlchemy(app)
+
 
 @app.route("/", methods=["GET"])
 def home():
