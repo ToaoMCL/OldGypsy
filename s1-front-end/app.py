@@ -23,7 +23,7 @@ db.session.commit()
 response_string = ""
 response = db.session.query(Template_Table).all()
 for i in response:
-    response_string = response_string + i.id + "," + i.name + "\n"
+    response_string = response_string + str(i.id) + "," + i.name + "\n"
     #response_list.append((i.id, i.name)) 
 
 
