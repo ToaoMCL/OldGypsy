@@ -20,7 +20,7 @@ db.session.add(newent)
 db.session.commit()
 
 response_list = []
-response = db.session.query(ItemTypes).all()
+response = db.session.query(Template_Table).all()
 for i in response:
     response_list.append((i.id, i.name)) 
 
