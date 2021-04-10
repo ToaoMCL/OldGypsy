@@ -1,6 +1,14 @@
 pipeline {
     agent any
+    environment {
+        DB_URI = credentials("gcp-db-uri")   
+    }
     stages {
+        stage("Test cred") {
+            steps {
+                sh "echo $DB_URI"
+            }
+        }
         stage("Test Front End") {
             steps {
                 sh "bash jenkins-scripts/run_tests.sh"
