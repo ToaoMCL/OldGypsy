@@ -4,7 +4,7 @@ pipeline {
         DB_URI = credentials("gcp-db-uri")   
     }
     stages {
-        stage("Test Front End") {
+        stage("Test") {
             steps {
                 sh "bash jenkins-scripts/run_tests.sh"
             }

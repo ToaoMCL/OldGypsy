@@ -20,9 +20,9 @@ db.session.add(newent)
 db.session.commit()
 
 response_list = []
-    response = db.session.query(ItemTypes).all()
-    for i in response:
-        response_list.append((i.id, i.name)) 
+response = db.session.query(ItemTypes).all()
+for i in response:
+    response_list.append((i.id, i.name)) 
 
 @app.route("/", methods=["GET"])
 def home():
