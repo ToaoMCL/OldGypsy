@@ -3,10 +3,10 @@ from flask import Flask, Response, request, jsonify
 app = Flask(__name__)
   
 
-@app.route("/get/premonition/<string:card>/<int:card_weight>/<string:constalation>/<string:constalation_weight>", methods=["GET"])
+@app.route("/get/premonition", methods=["POST"])
 def home(card, card_weight, constalation, constalation_weight):
     card = request.json
-    return jsonify({card:card_weight}, {constalation:constalation_weight})
+    return card["card_name"]
 
 
 if __name__ == "__main__":
