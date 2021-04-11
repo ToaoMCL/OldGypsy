@@ -23,7 +23,7 @@ class Fortune(db.Model):
 
 @app.route("/", methods=["GET"])
 def home():
-    db.dropall()
+    db.drop_all()
     db.create_all()
     card = requests.get("http://tarot-cards:5003/get/card")   
     constalation = requests.get("http://constilations:5002/get/constalation")
