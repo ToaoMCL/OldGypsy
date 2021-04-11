@@ -25,9 +25,9 @@ for i in response:
 def home():
     card = requests.get("http://tarot-cards:5003/get/card")   
     constalation = requests.get("http://constilations:5002/get/constalation")
-    result = card.text
+    result = jsonify(card.text)
    # premonition = requests.post("http://combination:5001/get/premonition/a/2/b/3", json=)
-    return result #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
+    return result["card_name"] #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
 
 if __name__ == "__main__":
