@@ -30,7 +30,7 @@ def home():
     data["constalation_weight"] = constalation.json()["constalation_weight"]
     premonition = requests.post("http://combination:5001/get/premonition", json=data)
     premonition.json()
-    return render_template("s1-front-end/templates/home.html", prediction=premonition.json()["luck"]) #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
+    return render_template("/templates/home.html", prediction=premonition.json()["luck"]) #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
 
 if __name__ == "__main__":
