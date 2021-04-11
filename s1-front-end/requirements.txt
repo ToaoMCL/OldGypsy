@@ -2,4 +2,3 @@ pymysql
 flask
 flask_sqlalchemy
 requests
-

@@ -19,8 +19,6 @@ class Fortune(db.Model):
     luck                = db.Column(db.Float)
     fortune             = db.Column(db.String(300))
 
-
-
 @app.route("/", methods=["GET"])
 def home():
     card = requests.get("http://tarot-cards:5003/get/card")   

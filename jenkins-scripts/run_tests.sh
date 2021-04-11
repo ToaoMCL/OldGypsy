@@ -28,6 +28,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 pip3 install -r test_requirements.txt
 python3 -m pytest --cov-config=.coveragerc --cov=. --cov-report term-missing --junitxml junit.xml
+
 deactivate
 cd ..
 
