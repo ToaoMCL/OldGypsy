@@ -23,8 +23,6 @@ class Fortune(db.Model):
 
 @app.route("/", methods=["GET"])
 def home():
-    db.drop_all()
-    db.create_all()
     card = requests.get("http://tarot-cards:5003/get/card")   
     constalation = requests.get("http://constilations:5002/get/constalation")
     data = card.json()
@@ -43,7 +41,7 @@ def home():
 
     db.session.add(Fortune(card_name=finished_prediction["card_name"],card_weight=finished_prediction["card_weight"],constalation_name=finished_prediction["constalation_name"],constalation_weight=finished_prediction["constalation_weight"],luck=finished_prediction["luck"],fortune=finished_prediction["fortune"]))
     db.session.commit()
-    
+
     return render_template("home.html", prediction=finished_prediction) #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
 @app.route("/past", methods=["GET"])
