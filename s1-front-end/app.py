@@ -10,7 +10,7 @@ app.config["WTF_CSRF_ENABLED"] = False
 app.config["DEBUG"] = False
 db = SQLAlchemy(app)
 
-class Fortune(card_name=,card_weight=,constalation_name=,constalation_weight=,luck=,db.Model):
+class Fortune(db.Model):
     id                  = db.Column(db.Integer, primary_key=True)
     card_name           = db.Column(db.String(30))
     card_weight         = db.Column(db.Integer)
