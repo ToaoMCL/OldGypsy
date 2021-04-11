@@ -45,12 +45,12 @@ def home():
 
     return render_template("home.html", prediction=finished_prediction) #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
+@app.route("/past", methods=["GET"])
 def past_fortunes():
     predictions = []
     response = db.session.query(Template_Table).all()
     for i in response:
-        predictions.append(str(i.id) + "," + i.name +)
-
+        predictions.append(i.card_name + " " + str(i.card_weight) + " " + i.constalation_name + " " + str(i.constalation_weight) + " " + str(i.luck) + " " + i.fortune)
     return render_template("past.html", predictions=predictions)
 
 if __name__ == "__main__":
