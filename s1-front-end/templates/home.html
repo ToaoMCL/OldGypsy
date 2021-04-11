@@ -1,6 +1,8 @@
 <html>
     <header>Old Gypsy</header>
     <body>
-        {{ prediction }}
+        Card <br> 
+        {{ prediction["card_name"] }} : {{ prediction["card_weight"] }}
+        luck = {{ prediction["luck"] }}
     </body>
 </html>
