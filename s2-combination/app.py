@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/get/premonition/<string:card>/<int:card_weight>/<string:constalation>/<string:constalation_weight>", methods=["GET"])
 def home(card, card_weight, constalation, constalation_weight):
-    
+    card = request.json
     return jsonify({card:card_weight}, {constalation:constalation_weight})
 
 
