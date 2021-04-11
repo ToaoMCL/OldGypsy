@@ -21,7 +21,9 @@ constalations = [
 @app.route("/get/constalation", methods=["GET"])
 def home():
     constalation_pos = randrange(0, 12)
-    return jsonify(constalations[constalation_pos])
+    constalation_key = constalations[constalation_pos].key
+    response_data = { "constalation_name":constalation_key, "constalation_weight": constalations[constalation_pos][constalation_key] }
+    return jsonify(response_data)
 
 
 if __name__ == "__main__":

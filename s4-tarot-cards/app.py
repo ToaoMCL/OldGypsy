@@ -23,7 +23,8 @@ def home():
     card_name = keys[card_pos]
     card_weight = card_data[keys[card_pos]]
 
-    response_data = { card_name:card_weight }
+    response_data = { "card_name":card_name, "card_weight":card_weight }
+
     return jsonify(response_data)
 
 
