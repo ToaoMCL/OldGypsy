@@ -12,7 +12,7 @@ def home():
     luck = data["card_weight"] + data["constalation_weight"]
 
     for i in range(0,10):
-        clamp(luck * (randrange(50, 150)/100),0 , 20)
+        luck = clamp(luck * (randrange(50, 150)/100),0 , 20)
     data["luck"] = luck 
     return jsonify(data)
 
