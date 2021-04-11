@@ -48,7 +48,7 @@ def home():
 @app.route("/past", methods=["GET"])
 def past_fortunes():
     predictions = []
-    response = db.session.query(Template_Table).all()
+    response = db.session.query(Fortune).all()
     for i in response:
         predictions.append(i.card_name + " " + str(i.card_weight) + " " + i.constalation_name + " " + str(i.constalation_weight) + " " + str(i.luck) + " " + i.fortune)
     return render_template("past.html", predictions=predictions)
