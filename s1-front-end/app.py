@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import requests
 import os 
 from flask_sqlalchemy import SQLAlchemy
@@ -28,9 +28,9 @@ def home():
     data = card.json()
     data["constalation_name"] = constalation.json()["constalation_name"]
     data["constalation_weight"] = constalation.json()["constalation_weight"]
-
     premonition = requests.post("http://combination:5001/get/premonition", json=data)
-    return premonition.json() #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
+    premonition.json()
+    return render_template("read item.html", prediction=premonition.json()["luck"]) #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
 
 if __name__ == "__main__":
