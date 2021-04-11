@@ -41,7 +41,7 @@ def home():
         fortune = "Your fortune looks bleak"
     finished_prediction["fortune"] = fortune
 
-    db.add(Fortune(card_name=finished_prediction["card_name"],card_weight=finished_prediction["card_weight"],constalation_name=finished_prediction["constalation_name"],constalation_weight=finished_prediction["constalation_weight"],luck=finished_prediction["luck"],fortune=finished_prediction["fortune"]))
+    db.session.add(Fortune(card_name=finished_prediction["card_name"],card_weight=finished_prediction["card_weight"],constalation_name=finished_prediction["constalation_name"],constalation_weight=finished_prediction["constalation_weight"],luck=finished_prediction["luck"],fortune=finished_prediction["fortune"]))
 
     return render_template("home.html", prediction=finished_prediction) #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
