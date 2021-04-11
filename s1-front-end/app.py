@@ -26,8 +26,8 @@ def home():
     card = requests.get("http://tarot-cards:5003/get/card")   
     constalation = requests.get("http://constilations:5002/get/constalation")
     data = card.json()
-    data["constalation_name"] = constalation.json["constalation_name"]
-    data["constalation_weight"] = constalation.json["constalation_weight"]
+    data["constalation_name"] = constalation.json()["constalation_name"]
+    data["constalation_weight"] = constalation.json()["constalation_weight"]
 
     premonition = requests.post("http://combination:5001/get/premonition", json=card.json())
     return premonition.json() #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
