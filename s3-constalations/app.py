@@ -18,9 +18,12 @@ constalations = [
     { "Pisces": 3 }
     ]
 
+def GetPosFromListOfDicts(list_of_dicts):
+    return randrange(0, len(list_of_dicts))
+
 @app.route("/get/constalation", methods=["GET"])
 def home():
-    constalation_pos = randrange(0, 12)
+    constalation_pos = GetPosFromListOfDicts(constalations)
     constalation_key = list(constalations[constalation_pos])[0]
     response_data = { "constalation_name":constalation_key, "constalation_weight": constalations[constalation_pos][constalation_key] }
     return jsonify(response_data)
