@@ -10,19 +10,21 @@ app.config["WTF_CSRF_ENABLED"] = False
 app.config["DEBUG"] = False
 db = SQLAlchemy(app)
 
-class Predictions(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), nullable=False)
-'''
-response_string = ""
-response = db.session.query(Template_Table).all()
-for i in response:
-    response_string = response_string + str(i.id) + "," + i.name + "\n"
-    
-'''
+class Fortune(card_name=,card_weight=,constalation_name=,constalation_weight=,luck=,db.Model):
+    id                  = db.Column(db.Integer, primary_key=True)
+    card_name           = db.Column(db.String(30))
+    card_weight         = db.Column(db.Integer)
+    constalation_name   = db.Column(db.String(30))
+    constalation_weight = db.Column(db.Integer)
+    luck                = db.Column(db.Float)
+    fortune             = db.Column(db.String(300))
+
+
 
 @app.route("/", methods=["GET"])
 def home():
+    db.dropall()
+    db.create_all()
     card = requests.get("http://tarot-cards:5003/get/card")   
     constalation = requests.get("http://constilations:5002/get/constalation")
     data = card.json()
@@ -37,10 +39,19 @@ def home():
         fortune = "Your fortune bears the color beige"
     else:
         fortune = "Your fortune looks bleak"
-
     finished_prediction["fortune"] = fortune
+
+    db.add(Fortune(card_name=finished_prediction["card_name"],card_weight=finished_prediction["card_weight"],constalation_name=finished_prediction["constalation_name"],constalation_weight=finished_prediction["constalation_weight"],luck=finished_prediction["luck"],fortune=finished_prediction["fortune"]))
+
     return render_template("home.html", prediction=finished_prediction) #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
+def past_fortunes():
+    predictions = []
+    response = db.session.query(Template_Table).all()
+    for i in response:
+        predictions.append(str(i.id) + "," + i.name +)
+
+    return render_template("past.html", predictions=predictions)
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True, host="0.0.0.0")
