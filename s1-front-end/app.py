@@ -30,7 +30,7 @@ def home():
     #r2 = dict(result)
     #a = result["card_name"]
     premonition = requests.post("http://combination:5001/get/premonition", json=card.json())
-    return a #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
+    return premonition.text #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
 
 if __name__ == "__main__":

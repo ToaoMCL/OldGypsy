@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/get/premonition", methods=["POST"])
 def home():
     card = request.json
-    return card["card_name"]
+    return card["card_name"] + card["card_weight"]
 
 
 if __name__ == "__main__":
