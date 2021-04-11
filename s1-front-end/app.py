@@ -10,7 +10,7 @@ app.config["WTF_CSRF_ENABLED"] = False
 app.config["DEBUG"] = False
 db = SQLAlchemy(app)
 
-class Template_Table(db.Model):
+class Predictions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
 
