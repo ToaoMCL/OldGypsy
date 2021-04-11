@@ -29,7 +29,7 @@ def home():
     data["constalation_name"] = constalation.json()["constalation_name"]
     data["constalation_weight"] = constalation.json()["constalation_weight"]
 
-    premonition = requests.post("http://combination:5001/get/premonition", json=data.json())
+    premonition = requests.post("http://combination:5001/get/premonition", json=jsonify(data))
     return premonition.json() #constalation.text + "\n" + card.text + premonition.text + "\n" + os.getenv("app_version")# + response_string
 
 
