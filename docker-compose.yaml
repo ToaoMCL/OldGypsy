@@ -39,6 +39,7 @@ services:
       build: ./s1-front-end
       environment:
         DB_URI: ${DB_URI}
+        app_version: ${app_version}
       ports:
       - target: 5000
         published: 5000
