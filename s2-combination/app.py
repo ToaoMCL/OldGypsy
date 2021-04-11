@@ -8,7 +8,7 @@ def clamp(num, min_value, max_value):
 
 @app.route("/get/premonition", methods=["POST"])
 def home():
-    data = request.json()
+    data = request.json
     luck = data["card_weight"] + data["constalation_weight"]
 
     for i in range(0,10):
