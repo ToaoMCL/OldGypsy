@@ -1,40 +1,49 @@
 version: "3.8"
 services:
     tarot-cards:
+      container_name: toaomcl/s4-tarrot-cards
+      image: toaomcl/s4-tarot-cards
       build: ./s4-tarot-cards
       ports:
       - target: 5003
         published: 5003
         protocol: tcp
+      deploy:
+        replicas: 1
 
     constilations:
+      container_name: toaomcl/s3-constilations
+      image: toaomcl/s3-constalations
       build: ./s3-constalations
       ports:
       - target: 5002
         published: 5002
         protocol: tcp
-        
+      deploy:
+        replicas: 1
+
     combination:
+      container_name: toaomcl/s2-combination
+      image: toaomcl/s2-combination
       build: ./s2-combination
       ports:
       - target: 5001
         published: 5001
         protocol: tcp
-        
+      deploy:
+        replicas: 1
+
     frontend:
+      container_name: toaomcl/s1-front-end
+      image: toaomcl/s1-front-end
       build: ./s1-front-end
+      environment:
+        DB_URI: ${DB_URI}
       ports:
       - target: 5000
         published: 5000
         protocol: tcp
+      deploy:
+        replicas: 1
       
-    #nginx:
-    #    image: nginx:latest
-    #    ports:
-    #    - target: 80
-    #      published: 80
-    #      protocol: tcp
-    #    volumes:
-    #    - type: bind
-    #      source: ./nginx/nginx.conf
-    #      target: /etc/nginx/nginx.conf
+      
