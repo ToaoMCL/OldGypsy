@@ -3,7 +3,7 @@ from random import randrange
 
 app = Flask(__name__)
 
-def clamp(num, min_value, max_value):
+def Clamp(num, min_value, max_value):
    return max(min(num, max_value), min_value)
 
 @app.route("/get/premonition", methods=["POST"])
@@ -12,7 +12,7 @@ def home():
     luck = data["card_weight"] + data["constalation_weight"]
 
     for i in range(0,10):
-        luck = clamp(luck * (randrange(50, 150)/100),0 , 20)
+        luck = Clamp(luck * (randrange(50, 150)/100),0 , 20)
     data["luck"] = luck 
     return jsonify(data)
 
