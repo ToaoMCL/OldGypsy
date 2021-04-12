@@ -36,7 +36,7 @@ def home():
     else:
         fortune = "Your fortune looks bleak"
     finished_prediction["fortune"] = fortune
-    finished_prediction["fortune"] = os.getenv("app_version")
+    finished_prediction["version"] = os.getenv("app_version")
 
     db.session.add(Fortune(card_name=finished_prediction["card_name"],card_weight=finished_prediction["card_weight"],constalation_name=finished_prediction["constalation_name"],constalation_weight=finished_prediction["constalation_weight"],luck=finished_prediction["luck"],fortune=finished_prediction["fortune"]))
     db.session.commit()
