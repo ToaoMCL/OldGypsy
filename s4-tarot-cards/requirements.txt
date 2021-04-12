@@ -1,10 +1,1 @@
-pytest
-pytest-cov
-pymysql
 flask
-flask_sqlalchemy
-flask_wtf
-flask-testing
-flask-bcrypt
-wtforms
-wtforms.validators
