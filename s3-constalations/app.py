@@ -4,18 +4,9 @@ from random import randrange
 app = Flask(__name__)
 
 constalations = [
-    { "Aries": 1 },
-    { "Taurus": 7 },
-    { "Gemini": 6 },
-    { "Cancer": 7 },
-    { "Leo": 9 },
-    { "Virgo": 6 },
-    { "Libra": 3 },
-    { "Scorpio": 4 },
-    { "Sagittarius": 6 },
-    { "Capricorn": 2 },
-    { "Aquarius": 5 },
-    { "Pisces": 3 }
+    { "JAmblA": 4 },
+    { "A bipedal Bull": 2 },
+    { "Water Bottle": 5 }  
     ]
 
 def GetPosFromListOfDicts(list_of_dicts):
