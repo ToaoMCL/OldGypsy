@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DB_URI = credentials("gcp-db-uri") 
-        app_version = "v1.2.0"
+        app_version = "v1.3.0"
     }
     stages {
         stage("Test") {
